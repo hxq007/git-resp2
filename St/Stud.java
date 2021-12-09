@@ -29,7 +29,8 @@ public class Stud {
                 //System.out.println("请添加");
                 addStudent(array);
             } else if (a.equals("dele")|| a.equals("2")) {
-                System.out.println("请删除");
+//                System.out.println("请删除");
+                deleteStudent(array);
             } else if (a.equals("unp")|| a.equals("3")) {
                 System.out.println("请修改");
             } else if (a.equals("select")|| a.equals("4")) {
@@ -70,18 +71,59 @@ public class Stud {
         System.out.println("成功");
 
     }
-    //查看学生   查看list内数据
+    //查看学生   查看list内数据 判断集合内是否存在数据
     public static void findAllstudent(ArrayList<Student>array){
         //显示表头
-        System.out.println("id\t\t\tname\t\tage\taddress");
-        //取出list内容(遍历集合)
-        for (int i=0;i<array.size();i++){
-            Student student = array.get(i);
-            System.out.println(student.getSid()+"\t\t\t"+student.getName()+"\t\t"+student.getAge()+"岁\t\t"+student.getAddress());
-
+//       System.out.println("id\t\t\tname\t\tage\taddress");
+//       //取出list内容(遍历集合)
+//       for (int i=0;i<array.size();i++){
+//            Student student = array.get(i);
+//          System.out.println(student.getSid()+"\t\t\t"+student.getName()+"\t\t"+student.getAge()+"岁\t\t"+student.getAddress());
+              System.out.println("id\t\t\tname\t\tage\taddress");
+              if (array.size() == 0) {
+                System.out.println("没有数据请添加");
+                return;
+            } else {
+                  for (int i = 0; i < array.size(); i++) {
+                Student student = array.get(i);
+                System.out.println(student.getSid() + "\t\t\t" + student.getName() + "\t\t" + student.getAge() + "岁\t\t" + student.getAddress());
+            }
         }
+        }
+    //判断集合内是否存在数据
+    //public static void findAllstudent (ArrayList<Student>array) {
+//        System.out.println("id\t\t\tname\t\tage\taddress");
+//        if (array.size() == 0) {
+//            System.out.println("没有数据请添加");
+//        } else {
+//            for (int i = 0; i < array.size(); i++) {
+//                System.out.println("id\t\t\tname\t\tage\taddress");
+//                Student student = array.get(i);
+//                System.out.println(student.getSid() + "\t\t\t" + student.getName() + "\t\t" + student.getAge() + "岁\t\t" + student.getAddress());
+//            }
+//        } // 判断
+
+    //根据学号删除学生信息
+    public static void deleteStudent(ArrayList<Student>array){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("请输入你要删除的学号");
+        String oo = sc.nextLine();
+        for (int i = 0 ; i<array.size();i++){
+            Student student = array.get(i);
+            if(student.getSid().equals(oo)){
+                array.remove(i);
+                break;
+            }
+        }
+        System.out.println("删除成功");
     }
 
-
-
 }
+
+
+
+
+
+
+
+
