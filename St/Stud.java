@@ -104,7 +104,7 @@ public class Stud {
 //        } // 判断
 
     //根据学号删除学生信息
-    public static void deleteStudent(ArrayList<Student>array){
+    /*public static void deleteStudent(ArrayList<Student>array){
         Scanner sc = new Scanner(System.in);
         System.out.println("请输入你要删除的学号");
         String oo = sc.nextLine();
@@ -116,6 +116,11 @@ public class Stud {
             }
         }
         System.out.println("删除成功");
+    }*/
+    //改进的删除方法
+    public static void deleteStudent(ArrayList<Student>array){
+        Scanner scanner = new Scanner(System.in);
+
     }
     //修改学生
     public static void updateStudent(ArrayList<Student>array){
