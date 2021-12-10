@@ -32,7 +32,7 @@ public class Stud {
 //                System.out.println("请删除");
                 deleteStudent(array);
             } else if (a.equals("unp")|| a.equals("3")) {
-                System.out.println("请修改");
+                updateStudent(array);
             } else if (a.equals("select")|| a.equals("4")) {
                 //System.out.println("请查看");
                 findAllstudent(array);
@@ -117,7 +117,36 @@ public class Stud {
         }
         System.out.println("删除成功");
     }
+    //修改学生
+    public static void updateStudent(ArrayList<Student>array){
+        //键盘录入的学生信息
+        Scanner s = new Scanner(System.in);
+        System.out.println("请输入修改的id");
+        String sid = s.nextLine();
+        System.out.println("请输入修改的name");
+        String name = s.nextLine();
+        System.out.println("请输入修改的age");
+        String age = s.nextLine();
+        System.out.println("请输入修改的地址");
+        String address = s.nextLine();
+        //创建学生对象
+        Student student = new Student();
+        student.setSid(sid);
+        student.setName(name);
+        student.setAge(age);
+        student.setAddress(address);
+        //遍历数组修改信息
+        for (int i=0; i<array.size();i++){
+            Student student1 = array.get(i);
+            if (student1.getSid().equals(sid)){
+                array.set(i,student);
+                break;
+            }
+        }
+        System.out.println("修改ok");
 
+
+    }
 }
 
 
